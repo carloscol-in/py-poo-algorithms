@@ -7,8 +7,14 @@ def merge(li):
         right = li[mid:]
 
         # recursive call
+        print('left')
         merge(left)
+        print('right')
         merge(right)
+
+        print('End of recursion')
+        print('Left: ', left)
+        print('Right: ', right)
 
         # iterators to walk both sublists
         i = 0
@@ -26,6 +32,10 @@ def merge(li):
 
             k += 1
 
+        
+        # print('Left: ', left)
+        # print('Right: ', right)
+
         while i < len(left):
             li[k] = left[i]
             i += 1
@@ -35,13 +45,14 @@ def merge(li):
             li[k] = right[j]
             j += 1
             k += 1
+        print('List: ', li)
 
     return li
 
 if __name__ == '__main__':
     li_size = int(input('What size of list do you want? > '))
 
-    li = [random.randint(0, li_size) for _ in range(li_size)]
+    li = [random.randint(0, 100) for _ in range(li_size)]
 
     print(li)
 
